@@ -24,6 +24,14 @@
             android:name=".add_category"
             android:label="@string/title_activity_add_category" >
         </activity>
+        <activity
+            android:name=".AddTask"
+            android:label="@string/title_activity_add_task" >
+        </activity>
+        <activity
+            android:name=".Badge"
+            android:label="@string/title_activity_badge" >
+        </activity>
     </application>
 
 </manifest>
