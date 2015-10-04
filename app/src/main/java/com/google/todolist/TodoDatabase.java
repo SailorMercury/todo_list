@@ -48,7 +48,8 @@ public class TodoDatabase extends SQLiteOpenHelper {
                 "ID TEXT(12) PRIMARY KEY," +
                 "category_id TEXT," +
                 "name TEXT," +
-                "deadline INTEGER )";
+                "deadline INTEGER, " +
+                "status BOOLEAN )";
 
         db.execSQL(sql);
         db.execSQL(sql2);
@@ -59,9 +60,9 @@ public class TodoDatabase extends SQLiteOpenHelper {
         addCategory(db, "tdc001", "House Chores", "House stuff to do");
         addCategory(db,"tdc002","Office Work", "Work related stuff");
         addCategory(db,"tdc003","Kids list", "Kids stuff to do");
-        addTask(db, "tdl001", "tdc001", "Sweep Floor",currentTime+777777);
-        addTask(db, "tdl002", "tdc001", "Clean Dishes",currentTime+888888);
-        addTask(db, "tdl003", "tdc001", "Throw out rubbish", currentTime + 999999);
+        addTask(db, "tdl001", "tdc001", "Sweep Floor",currentTime+777777, true);
+        addTask(db, "tdl002", "tdc001", "Clean Dishes",currentTime+888888, false);
+        addTask(db, "tdl003", "tdc001", "Throw out rubbish", currentTime + 999999, false);
     }
 
     @Override
@@ -83,6 +84,34 @@ public class TodoDatabase extends SQLiteOpenHelper {
         }
         db.close();
         return categories;
+    }
+
+    public Task[] taskSearchByName(String name){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(("SELECT ID FROM task where name like ? "), new String[] { "%" + name + "%"});
+        Task[] tasks = new Task[cursor.getCount()];
+        for (int c = 0;c < tasks.length; c++)
+        {
+            cursor.moveToPosition(c);
+            String id = cursor.getString(cursor.getColumnIndex("ID"));
+            tasks[c] = getTask(id);
+        }
+        db.close();
+        return tasks;
+    }
+
+    public Task[] taskSearchByStatus(boolean status){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(("SELECT ID FROM task where status is ? "), new String[] { Boolean.toString(status) });
+        Task[] tasks = new Task[cursor.getCount()];
+        for (int c = 0;c < tasks.length; c++)
+        {
+            cursor.moveToPosition(c);
+            String id = cursor.getString(cursor.getColumnIndex("ID"));
+            tasks[c] = getTask(id);
+        }
+        db.close();
+        return tasks;
     }
 
     public Category getCategory(String id)
@@ -141,13 +170,14 @@ public class TodoDatabase extends SQLiteOpenHelper {
 
     }
 
-    public void addTask(SQLiteDatabase db, String id, String category_id, String name, Integer deadline)
+    public void addTask(SQLiteDatabase db, String id, String category_id, String name, Integer deadline, Boolean status)
     {
         ContentValues values = new ContentValues();
         values.put("ID", id);
         values.put("category_id", category_id);
         values.put("name", name);
         values.put("deadline", deadline);
+        values.put("deadline", status);
 
         db.insert("task_list", "name" ,values);
 

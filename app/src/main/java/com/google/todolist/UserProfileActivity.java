@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class UserProfileActivity extends ActionBarActivity {
@@ -12,27 +13,19 @@ public class UserProfileActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_user_profile, menu);
-        return true;
-    }
+        TodoDatabase db = new TodoDatabase(this);
+        CategoryAdapter category = new CategoryAdapter(this, db.searchByName(""));
+        TaskAdapter all_task = new TaskAdapter(this, db.taskSearchByName(""));
+        TaskAdapter completed_task = new TaskAdapter(this, db.taskSearchByStatus(true));
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        TextView category_count = (TextView) findViewById(R.id.todo_category_count);
+        TextView todo_task_count = (TextView) findViewById(R.id.todo_task_count);
+        TextView todo_task_completed = (TextView) findViewById(R.id.todo_task_completed);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
-        return super.onOptionsItemSelected(item);
+        category_count.setText(category.getCount());
+        todo_task_count.setText(all_task.getCount());
+        todo_task_completed.setText(completed_task.getCount());
     }
 }
