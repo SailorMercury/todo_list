@@ -8,5 +8,7 @@
     <string name="title_activity_add_category">add_category</string>
     <string name="title_activity_add_task">Add Task</string>
     <string name="title_activity_badge">Badge</string>
+    <string name="title_activity_category_list">category_list</string>
+    <string name="title_activity_category_list_item">category_list_item</string>
 
 </resources>
