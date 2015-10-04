@@ -17,19 +17,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".user_profile"
+            android:name=".UserProfileActivity"
             android:label="@string/title_activity_user_profile" >
         </activity>
         <activity
-            android:name=".add_category"
+            android:name=".AddCategoryActivity"
             android:label="@string/title_activity_add_category" >
         </activity>
         <activity
-            android:name=".AddTask"
+            android:name=".AddTaskActivity"
             android:label="@string/title_activity_add_task" >
         </activity>
         <activity
-            android:name=".Badge"
+            android:name=".BadgeActivity"
             android:label="@string/title_activity_badge" >
         </activity>
         <activity
