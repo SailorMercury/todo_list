@@ -98,7 +98,7 @@ public class TodoDatabase extends SQLiteOpenHelper {
 
     public Task[] taskSearchByStatus(boolean status){
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery(("SELECT * FROM task_list where status is ? "), new String[] { Boolean.toString(status) });
+        Cursor cursor = db.rawQuery(("SELECT * FROM task_list where status = ? "), new String[] { Boolean.toString(status) });
         Task[] tasks = new Task[cursor.getCount()];
         for (int c = 0;c < tasks.length; c++)
         {

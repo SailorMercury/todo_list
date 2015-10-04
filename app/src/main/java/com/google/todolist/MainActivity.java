@@ -72,4 +72,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         startActivity(intent);
     }
+
+    public void show_badge(MenuItem item)
+    {
+        Intent intent = new Intent (this, BadgeActivity.class);
+
+        startActivity(intent);
+    }
+
+    public void show_profile(MenuItem item)
+    {
+        Intent intent = new Intent (this, UserProfileActivity.class);
+
+        startActivity(intent);
+    }
 }

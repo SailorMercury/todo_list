@@ -24,8 +24,8 @@ public class UserProfileActivity extends ActionBarActivity {
         TextView todo_task_completed = (TextView) findViewById(R.id.todo_task_completed);
 
 
-        category_count.setText(category.getCount());
-        todo_task_count.setText(all_task.getCount());
-        todo_task_completed.setText(completed_task.getCount());
+        category_count.setText(Integer.toString(category.getCount()));
+        todo_task_count.setText(Integer.toString(all_task.getCount()));
+        todo_task_completed.setText(Integer.toString(completed_task.getCount()));
     }
 }
