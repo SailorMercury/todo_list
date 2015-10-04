@@ -10,5 +10,7 @@
     <string name="title_activity_badge">Badge</string>
     <string name="title_activity_category_list">category_list</string>
     <string name="title_activity_category_list_item">category_list_item</string>
+    <string name="title_activity_task_list">TaskListActivity</string>
+    <string name="title_activity_task_list_item">TaskListItemActivity</string>
 
 </resources>

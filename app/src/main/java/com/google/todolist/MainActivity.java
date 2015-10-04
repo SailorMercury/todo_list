@@ -1,13 +1,16 @@
 package com.google.todolist;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
     public static TodoDatabase.Category selectedCategory = null;
     TodoDatabase db;
 
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         search("");
 
         ListView listView = (ListView) findViewById(R.id.listView);
-        //listView.setOnItemClickListener(this);
+        listView.setOnItemClickListener(this);
 
     }
 
@@ -57,5 +60,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        TodoDatabase.Category category = (TodoDatabase.Category) parent.getItemAtPosition(position);
+
+        Intent intent = new Intent(this,TaskListActivity.class);
+        intent.putExtra("id", category.id);
+
+        startActivity(intent);
     }
 }
