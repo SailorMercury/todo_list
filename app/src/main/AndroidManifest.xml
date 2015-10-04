@@ -32,6 +32,14 @@
             android:name=".Badge"
             android:label="@string/title_activity_badge" >
         </activity>
+        <activity
+            android:name=".CategoryListActivity"
+            android:label="@string/title_activity_category_list" >
+        </activity>
+        <activity
+            android:name=".CategoryListItem"
+            android:label="@string/title_activity_category_list_item" >
+        </activity>
     </application>
 
 </manifest>
