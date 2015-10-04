@@ -1,14 +1,10 @@
 package com.google.todolist;
 
         import android.content.ContentValues;
-        import android.content.Context;
-        import android.database.Cursor;
-        import android.database.sqlite.SQLiteDatabase;
-        import android.database.sqlite.SQLiteOpenHelper;
-        import android.util.Log;
-
-        import java.util.Calendar;
-        import java.util.Date;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
 
 /**
@@ -30,7 +26,7 @@ public class TodoDatabase extends SQLiteOpenHelper {
         public String id;
         public String category_id;
         public String name;
-        public Integer deadline;
+        public int deadline;
     }
 
     public TodoDatabase(Context context) {
@@ -74,7 +70,7 @@ public class TodoDatabase extends SQLiteOpenHelper {
 
     public Category[] searchByName(String name){
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery(("SELECT ID FROM category where name like ? "), new String[] { "%" + name + "%"});
+        Cursor cursor = db.rawQuery(("SELECT * FROM category where name like ? "), new String[] { "%" + name + "%"});
         Category[] categories = new Category[cursor.getCount()];
         for (int c = 0;c < categories.length; c++)
         {
@@ -88,7 +84,7 @@ public class TodoDatabase extends SQLiteOpenHelper {
 
     public Task[] taskSearchByName(String name){
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery(("SELECT ID FROM task where name like ? "), new String[] { "%" + name + "%"});
+        Cursor cursor = db.rawQuery(("SELECT * FROM task_list where name like ? "), new String[] { "%" + name + "%"});
         Task[] tasks = new Task[cursor.getCount()];
         for (int c = 0;c < tasks.length; c++)
         {
@@ -102,7 +98,21 @@ public class TodoDatabase extends SQLiteOpenHelper {
 
     public Task[] taskSearchByStatus(boolean status){
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery(("SELECT ID FROM task where status is ? "), new String[] { Boolean.toString(status) });
+        Cursor cursor = db.rawQuery(("SELECT * FROM task_list where status is ? "), new String[] { Boolean.toString(status) });
+        Task[] tasks = new Task[cursor.getCount()];
+        for (int c = 0;c < tasks.length; c++)
+        {
+            cursor.moveToPosition(c);
+            String id = cursor.getString(cursor.getColumnIndex("ID"));
+            tasks[c] = getTask(id);
+        }
+        db.close();
+        return tasks;
+    }
+
+    public Task[] taskSearchByCategory(String category_id){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery(("SELECT * FROM task_list where category_id = ?"), new String[] { category_id });
         Task[] tasks = new Task[cursor.getCount()];
         for (int c = 0;c < tasks.length; c++)
         {
@@ -139,7 +149,7 @@ public class TodoDatabase extends SQLiteOpenHelper {
     public Task getTask(String id)
     {
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery(("SELECT * FROM task WHERE ID = ? "), new String[]{id});
+        Cursor cursor = db.rawQuery(("SELECT * FROM task_list WHERE ID = ? "), new String[]{id});
         //Cursor cursor = db.rawQuery(("SELECT ID, name, position, officePhone, cellPhone, department," +
         //        "email, salary, profileUrl, supervisorID, annualLeaveLeft, " +
         //        "ifnull((SELECT name FROM employee WHERE ID = emp.supervisorID), '-') As supervisorName FROM employee emp WHERE " +

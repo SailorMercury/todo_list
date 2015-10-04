@@ -1,38 +1,38 @@
 package com.google.todolist;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 
-public class TaskListActivity extends ActionBarActivity {
+public class TaskListActivity extends ActionBarActivity implements AdapterView.OnItemClickListener {
+
+    TodoDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_list);
+
+        // Get Intention
+        String categoryId = getIntent().getStringExtra("id");
+
+        db = new TodoDatabase(this);
+
+        //EditText searchText = (EditText) findViewById(R.id.listView);
+        //searchText.addTextChangedListener(this);
+
+        TaskAdapter adapter = new TaskAdapter(this, db.taskSearchByCategory(categoryId));
+
+        ListView listView = (ListView) findViewById(R.id.tl_listView);
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(this);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_task_list, menu);
-        return true;
-    }
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

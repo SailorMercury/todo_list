@@ -37,16 +37,8 @@
             android:label="@string/title_activity_category_list" >
         </activity>
         <activity
-            android:name=".CategoryListItem"
-            android:label="@string/title_activity_category_list_item" >
-        </activity>
-        <activity
             android:name=".TaskListActivity"
             android:label="@string/title_activity_task_list" >
-        </activity>
-        <activity
-            android:name=".TaskListItemActivity"
-            android:label="@string/title_activity_task_list_item" >
         </activity>
     </application>
 
