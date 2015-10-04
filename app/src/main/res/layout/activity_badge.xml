@@ -1,173 +1,227 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.google.todolist.BadgeActivity"
-    >
+    tools:context="com.google.todolist.Badge"
+    android:orientation="vertical"
+    android:weightSum="1">
 
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:src="@mipmap/new_badge"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="39dp"
-        android:layout_alignParentStart="true" />
+        android:layout_weight="0.06">
 
-    <ImageView
-        android:layout_width="wrap_content"
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView7"
+            android:src="@mipmap/new_badge"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView8"
+            android:src="@mipmap/latest_badge"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView9"
+            android:src="@mipmap/like_badge"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Optimus Prime"
+            android:id="@+id/textView24"
+            android:layout_below="@+id/imageView4"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:layout_gravity="center|top"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="The Flash"
+            android:id="@+id/textView25"
+            android:layout_below="@+id/imageView4"
+            android:layout_alignEnd="@+id/imageView3"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Avengers"
+            android:id="@+id/textView26"
+            android:layout_above="@+id/textView19"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="5 likes completed"
+            android:id="@+id/text1"
+            android:layout_below="@+id/imageView4"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:layout_gravity="center|top" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="5 likes completed"
+            android:id="@+id/text2"
+            android:layout_below="@+id/imageView4"
+            android:layout_alignEnd="@+id/imageView3"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="5 likes completed"
+            android:id="@+id/textView3"
+            android:layout_above="@+id/textView19"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView4"
+            android:src="@mipmap/number1_badge"
+            android:layout_below="@+id/imageView"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView5"
+            android:src="@mipmap/star_badge"
+            android:layout_alignTop="@+id/imageView4"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imageView6"
+            android:layout_alignBottom="@+id/imageView5"
+            android:layout_alignParentEnd="true"
+            android:src="@mipmap/first33"
+            android:layout_alignStart="@+id/imageView3"
+            android:layout_alignTop="@+id/imageView5"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
-        android:src="@mipmap/latest_badge"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_toEndOf="@+id/imageView"
-        android:layout_alignBottom="@+id/imageView" />
+        android:baselineAligned="false">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView3"
-        android:layout_alignBottom="@+id/imageView2"
-        android:layout_toEndOf="@+id/imageView2"
-        android:src="@mipmap/like_badge" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Optimus Prime"
+            android:id="@+id/textView18"
+            android:layout_below="@+id/imageView4"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            android:layout_gravity="center|top" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView4"
-        android:src="@mipmap/number1_badge"
-        android:layout_below="@+id/imageView"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="99dp" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="The Flash"
+            android:id="@+id/textView22"
+            android:layout_below="@+id/imageView4"
+            android:layout_alignEnd="@+id/imageView3"
+            android:layout_weight="1" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView5"
-        android:src="@mipmap/star_badge"
-        android:layout_alignTop="@+id/imageView4"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Avengers"
+            android:id="@+id/textView20"
+            android:layout_above="@+id/textView19"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView6"
-        android:layout_alignBottom="@+id/imageView5"
-        android:layout_alignParentEnd="true"
-        android:src="@mipmap/first33"
-        android:layout_alignStart="@+id/imageView3"
-        android:layout_alignTop="@+id/imageView5" />
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Adventurer"
-        android:id="@+id/textView12"
-        android:layout_below="@+id/imageView3"
-        android:layout_alignEnd="@+id/imageView4" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="4 task completed"
-        android:id="@+id/textView13"
-        android:layout_below="@+id/textView12"
-        android:layout_alignParentStart="true" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="5 likes completed"
+            android:id="@+id/textView29"
+            android:layout_below="@+id/textView28"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="New Challenger"
-        android:id="@+id/textView14"
-        android:layout_above="@+id/textView13"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="5 likes completed"
+            android:id="@+id/textView23"
+            android:layout_below="@+id/textView22"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="5 task completed"
-        android:id="@+id/textView15"
-        android:layout_below="@+id/textView14"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="20dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="5 likes completed"
+            android:id="@+id/textView19"
+            android:layout_below="@+id/textView18"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Likers"
-        android:id="@+id/textView16"
-        android:layout_marginEnd="25dp"
-        android:layout_below="@+id/imageView3"
-        android:layout_alignEnd="@+id/imageView3" />
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="5 likes completed"
-        android:id="@+id/textView17"
-        android:layout_below="@+id/textView16"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Optimus Prime"
-        android:id="@+id/textView18"
-        android:layout_below="@+id/imageView4"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="5 likes completed"
-        android:id="@+id/textView19"
-        android:layout_below="@+id/textView18"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Avengers"
-        android:id="@+id/textView20"
-        android:layout_above="@+id/textView19"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="5 likes completed"
-        android:id="@+id/textView21"
-        android:layout_below="@+id/textView20"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="The Flash"
-        android:id="@+id/textView22"
-        android:layout_below="@+id/imageView4"
-        android:layout_alignEnd="@+id/imageView3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="5 likes completed"
-        android:id="@+id/textView23"
-        android:layout_below="@+id/textView22"
-        android:layout_alignParentEnd="true" />
-
-</RelativeLayout>
+</LinearLayout>
