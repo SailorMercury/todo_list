@@ -4,14 +4,39 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ListView;
 
 
 public class MainActivity extends ActionBarActivity {
+    public static TodoDatabase.Category selectedCategory = null;
+    TodoDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_category_list);
+
+
+        db = new TodoDatabase(this);
+
+        //EditText searchText = (EditText) findViewById(R.id.listView);
+        //searchText.addTextChangedListener(this);
+
+        search("");
+
+        ListView listView = (ListView) findViewById(R.id.listView);
+        //listView.setOnItemClickListener(this);
+
+    }
+
+    public void search(String searchText)
+    {
+        CategoryAdapter adapter = new CategoryAdapter(this, db.searchByName(searchText));
+
+        ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(adapter);
     }
 
     @Override

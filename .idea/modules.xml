@@ -4,10 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/TodoList.iml" filepath="$PROJECT_DIR$/TodoList.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-<<<<<<< HEAD
-=======
-      <module fileurl="file://$PROJECT_DIR$/todo_list1.iml" filepath="$PROJECT_DIR$/todo_list1.iml" />
->>>>>>> a576f7eb5e152c0ea678a16252a7c1e7fb59c446
     </modules>
   </component>
 </project>

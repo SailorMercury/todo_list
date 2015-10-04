@@ -46,7 +46,7 @@ public class TodoDatabase extends SQLiteOpenHelper {
 
         String sql2 = "CREATE TABLE IF NOT EXISTS task_list (" +
                 "ID TEXT(12) PRIMARY KEY," +
-                "category_id TEXT FOREIGN KEY," +
+                "category_id TEXT," +
                 "name TEXT," +
                 "deadline INTEGER )";
 
